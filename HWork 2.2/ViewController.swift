@@ -32,6 +32,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         labelGreen.text = String(slideGreen.value)
         labelBlue.text = String(slideBlue.value)
         
+        textRed.text = labelRed.text
+        textGreen.text = labelGreen.text
+        textBlue.text = labelBlue.text
+        
         changeColorRGB(red: CGFloat(slideRed.value), green: CGFloat(slideGreen.value), blue: CGFloat(slideBlue.value))
         
         textRed.delegate = self
@@ -39,9 +43,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textGreen.delegate = self
         
         let toolBar = UIToolbar()
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.doneClicked))
-        toolBar.setItems([doneButton], animated: false)
+        toolBar.setItems([flexibleSpace,doneButton], animated: false)
         toolBar.sizeToFit()
+        
         textRed.inputAccessoryView = toolBar
         textGreen.inputAccessoryView = toolBar
         textBlue.inputAccessoryView = toolBar
@@ -53,7 +59,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func doneClicked() {
+        
         view.endEditing(true)
+        
     }
     
     @IBAction func redSlide() {
@@ -84,12 +92,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         checkInputText(mTextField: textRed,   mSlider: slideRed)
         checkInputText(mTextField: textGreen, mSlider: slideGreen)
         checkInputText(mTextField: textBlue , mSlider: slideBlue)
-        
+        changeColorRGB(red: CGFloat(slideRed.value), green: CGFloat(slideGreen.value), blue: CGFloat(slideBlue.value))
         return true
     }
     
     private func checkInputText(mTextField: UITextField, mSlider: UISlider) {
-        guard let inputText = mTextField.text, !inputText.isEmpty else { return }
+        guard let inputText = mTextField.text, !inputText.isEmpty else {
+            mTextField.text = "0"
+            mSlider.value = 0
+            return }
         if let value = Float(inputText) {
             if value > 1 {//
                 mTextField.text = "1"
