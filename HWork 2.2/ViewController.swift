@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet var mainView: UIView!
     @IBOutlet var labelRed: UILabel!
     @IBOutlet var labelGreen: UILabel!
@@ -22,7 +23,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var slideRed: UISlider!
     @IBOutlet var slideGreen: UISlider!
     @IBOutlet var slideBlue: UISlider!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
@@ -92,7 +93,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         checkInputText(mTextField: textRed,   mSlider: slideRed)
         checkInputText(mTextField: textGreen, mSlider: slideGreen)
         checkInputText(mTextField: textBlue , mSlider: slideBlue)
-        changeColorRGB(red: CGFloat(slideRed.value), green: CGFloat(slideGreen.value), blue: CGFloat(slideBlue.value))
+        changeColorRGB(red: CGFloat(slideRed.value),
+                       green: CGFloat(slideGreen.value),
+                       blue: CGFloat(slideBlue.value))
+        labelRed.text = textRed.text
+        labelGreen.text = textGreen.text
+        labelBlue.text = textBlue.text
+        
         return true
     }
     

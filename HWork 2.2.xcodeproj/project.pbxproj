@@ -15,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AB7B97FD22ED60D400AB14FE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB9B31B022EA49BC00A63A39 /* HWork 2.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HWork 2.2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9B31B322EA49BC00A63A39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB9B31B522EA49BC00A63A39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB9B31B822EA49BC00A63A39 /* Base */,
-				AB7B97FD22ED60D400AB14FE /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
